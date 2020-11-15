@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>WebComponent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="type-writer.js"></script>
+</head>
+
+<body>
+    <type-writer
+        quotes='[{"author": "George Orwell", "content": "And if all others accepted the lie which the Party imposed—if all records told the same tale—then the lie passed into history and became truth."},{"author": "Marc-Uwe Kling", "content": "An uniformed idiot is still an idiot."},{"author": "Ruprecht Polenz", "content": "Many predictions are made under the assumption that no one remember the prediction if it dont take place."}]'>
+    </type-writer>
+    <type-writer id="asnycronousWriter"></type-writer>
+    <script>
+        function httpGetAsync(theUrl, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(JSON.parse(xmlHttp.responseText));
+            }
+            xmlHttp.open("GET", theUrl, true);
+            xmlHttp.send(null);
+        }
+
+        httpGetAsync('https://api.quotable.io/quotes?tags=science|famous-quotes', (responseText) => {
+            const result = responseText.results;
+            const quotes = result.map((item) => JSON.stringify(({ author: item.author, content: item.content })));
+            const el = document.getElementById('asnycronousWriter');
+            el.setAttribute('quotes', `[${quotes.join()}]`);
+        })
+    </script>
+</body>
+
+</html>

@@ -10,6 +10,6 @@ const concat = require('concat');
     './dist/type-writer-web-component/vendor-es2015.js'
   ];
 
-  await fs.ensureDir('web-component-dist');
-  await concat(files, 'web-component-dist/type-writer.js');
+  await fs.ensureDir('bundled-dist');
+  await concat(files, 'bundled-dist/type-writer.js');
 })();
