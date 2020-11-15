@@ -1,6 +1,8 @@
 # TypeWriter Web Component
 ![Alt Text](./bundled-dist/example.gif)
 
+Use TypeWriter-Text on your website with only two lines of html-code
+
 ## Simple Usage Example
 
 1. Copy type-writer.js (./bundled-dist/type-writer.js) to your working directory
