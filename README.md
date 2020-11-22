@@ -10,5 +10,3 @@ Use TypeWriter-Text on your website with only two lines of html-code
 3. In the body of your .html add `<type-writer quotes='[{"author": "Test Author", "content": "Hello World"}]'></type-writer>`
 
 For more complex example including asynchronously loading quotes see bundled-dist/index.html
-
-## How to create standalone web-components with angular
